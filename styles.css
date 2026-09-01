@@ -157,7 +157,7 @@ h1 {
 .table-row {
   display: flex;
   display: grid;
-  grid-template-columns: minmax(0, 1.36fr) 0.36fr 0.48fr repeat(6, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.36fr) 0.5fr 0.48fr repeat(6, minmax(0, 1fr));
   align-items: center;
 }
 
@@ -170,7 +170,7 @@ h1 {
 }
 
 .table-row > span:nth-child(2) {
-  flex-grow: 0.36;
+  flex-grow: 0.5;
 }
 
 .table-row > span:nth-child(3) {
