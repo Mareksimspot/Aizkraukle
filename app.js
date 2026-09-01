@@ -253,24 +253,39 @@ function renderRecords(records) {
   startRotation(slides, dots);
 }
 
-function loadSchedule() {
+function requestSchedule(url, useFallback) {
   var request = new XMLHttpRequest();
   var cacheKey = Math.floor(new Date().getTime() / UPDATE_INTERVAL);
-  request.open("GET", "doctors_timetable.json?v=" + cacheKey, true);
+  request.open("GET", url + (url.indexOf("?") === -1 ? "?" : "&") + "v=" + cacheKey, true);
   request.onreadystatechange = function () {
     if (request.readyState !== 4) return;
     if (request.status < 200 || request.status >= 300) {
+      if (useFallback) {
+        requestSchedule("doctors_timetable.json", false);
+        return;
+      }
       showError();
       return;
     }
     try {
       renderRecords(JSON.parse(request.responseText));
     } catch (error) {
+      if (useFallback) {
+        requestSchedule("doctors_timetable.json", false);
+        return;
+      }
       showError();
     }
   };
-  request.onerror = showError;
+  request.onerror = function () {
+    if (useFallback) requestSchedule("doctors_timetable.json", false);
+    else showError();
+  };
   request.send();
+}
+
+function loadSchedule() {
+  requestSchedule("/api/timetable", true);
 }
 
 updateClock();

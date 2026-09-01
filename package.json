@@ -1,0 +1,17 @@
+{
+  "name": "aizkraukle-signage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx vercel@59.10.0 dev",
+    "hash-password": "node scripts/hash-password.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.8.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Pieņemšanas laiku administrēšana</title>
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <header class="admin-header">
+      <img
+        src="https://www.aizkrauklesklinika.lv/images/aizkraukles-klinikas-logo.svg"
+        alt="Aizkraukles klīnika"
+      />
+      <div>
+        <p>Digitālā izkārtne</p>
+        <h1>Pieņemšanas laiku administrēšana</h1>
+      </div>
+    </header>
+
+    <main>
+      <section id="login-view" class="login-card" hidden>
+        <h2>Pieslēgties</h2>
+        <p>Ievadiet administratora lietotājvārdu un paroli.</p>
+        <form id="login-form">
+          <label>
+            Lietotājvārds
+            <input id="username" name="username" autocomplete="username" required />
+          </label>
+          <label>
+            Parole
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+          <button type="submit" class="primary">Pieslēgties</button>
+        </form>
+        <p id="login-error" class="message error" role="alert"></p>
+      </section>
+
+      <section id="editor-view" class="editor" hidden>
+        <div class="toolbar">
+          <div>
+            <h2>Speciālistu saraksts</h2>
+            <p id="record-count"></p>
+          </div>
+          <div class="actions">
+            <button id="add-record" type="button">Pievienot ierakstu</button>
+            <button id="reload-records" type="button">Atjaunot</button>
+            <button id="save-records" type="button" class="primary">Saglabāt</button>
+            <button id="logout" type="button" class="quiet">Iziet</button>
+          </div>
+        </div>
+
+        <p id="editor-message" class="message" aria-live="polite"></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nozare</th>
+                <th>Speciālists</th>
+                <th>Kab.</th>
+                <th>Virziens</th>
+                <th>Pirmdiena</th>
+                <th>Otrdiena</th>
+                <th>Trešdiena</th>
+                <th>Ceturtdiena</th>
+                <th>Piektdiena</th>
+                <th>Sestdiena</th>
+                <th><span class="sr-only">Darbības</span></th>
+              </tr>
+            </thead>
+            <tbody id="records"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/admin.js"></script>
+  </body>
+</html>
