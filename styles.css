@@ -1,22 +1,22 @@
 @font-face {
-  font-family: "TT Hoves";
-  src: url("https://aizkrauklesklinika.lv/fonts/TTHoves-Regular.woff") format("woff");
+  font-family: "Signage Sans";
+  src: url("fonts/DejaVuSans-Latvian.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "TT Hoves";
-  src: url("https://aizkrauklesklinika.lv/fonts/TTHoves-DemiBold.woff") format("woff");
-  font-weight: 600;
+  font-family: "Signage Sans";
+  src: url("fonts/DejaVuSans-Latvian-Bold.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
   color-scheme: light;
-  font-family: "TT Hoves", Arial, sans-serif;
+  font-family: "Signage Sans", Arial, sans-serif;
   color: #002c5b;
   background: #fafdff;
   font-synthesis: none;
@@ -194,14 +194,16 @@ h1 {
 .section-title {
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 2.55vw;
   padding: 0.25vw 1.02vw;
   background: linear-gradient(135deg, #e1f4ff, #c5eaff);
   color: #002c5b;
-  font-size: 1.13vw;
-  font-weight: 600;
+  font-size: 1.2vw;
+  font-weight: 700;
   letter-spacing: 0.01em;
   line-height: 1.1;
+  text-align: center;
 }
 
 .doctor-row {
@@ -226,7 +228,8 @@ h1 {
 
 .doctor-row .doctor {
   color: #002c5b;
-  font-weight: 600;
+  font-size: 1.14vw;
+  font-weight: 700;
 }
 
 .doctor-row .place,
