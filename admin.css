@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Signage Sans";
-  src: url("/fonts/DejaVuSans-Latvian.woff2") format("woff2");
+  src: url("fonts/DejaVuSans-Latvian.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Signage Sans";
-  src: url("/fonts/DejaVuSans-Latvian-Bold.woff2") format("woff2");
+  src: url("fonts/DejaVuSans-Latvian-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -174,6 +174,16 @@ button.quiet {
   justify-content: space-between;
   gap: 2rem;
   margin-bottom: 1rem;
+}
+
+.demo-banner {
+  margin: 0 0 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid #f2ca6b;
+  border-radius: 0.5rem;
+  background: #fff7dc;
+  color: #6d4b00;
+  font-weight: 700;
 }
 
 .toolbar h2,

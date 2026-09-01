@@ -10,6 +10,9 @@ const DIRECTION_OPTIONS = [
 let csrfToken = "";
 let version = "";
 let dirty = false;
+const demoHost = location.hostname.endsWith("github.io") || location.hostname === "localhost" || location.hostname === "127.0.0.1";
+const demoMode = demoHost && new URLSearchParams(location.search).get("demo") === "1";
+const demoStorageKey = "aizkraukle-timetable-admin-demo";
 
 const loginView = document.querySelector("#login-view");
 const editorView = document.querySelector("#editor-view");
@@ -124,6 +127,15 @@ function collectRecords() {
 
 async function loadRecords() {
   setMessage("Ielādē datus…");
+  if (demoMode) {
+    const saved = localStorage.getItem(demoStorageKey);
+    const records = saved
+      ? JSON.parse(saved)
+      : await fetch("doctors_timetable.json", { cache: "no-store" }).then((response) => response.json());
+    renderRecords(records);
+    setMessage("Testa dati ielādēti.", "success");
+    return;
+  }
   const response = await fetch("/api/timetable?admin=1", { cache: "no-store" });
   if (!response.ok) throw new Error((await responseJson(response)).error || "Neizdevās ielādēt datus");
   version = response.headers.get("x-timetable-version") || "";
@@ -132,6 +144,13 @@ async function loadRecords() {
 }
 
 async function checkSession() {
+  if (demoMode) {
+    document.querySelector("#demo-banner").hidden = false;
+    document.querySelector("#logout").hidden = true;
+    setAuthenticated(true);
+    await loadRecords();
+    return;
+  }
   try {
     const response = await fetch("/api/session", { cache: "no-store" });
     if (!response.ok) {
@@ -204,6 +223,12 @@ document.querySelector("#save-records").addEventListener("click", async (event) 
   button.disabled = true;
   setMessage("Saglabā…");
   try {
+    if (demoMode) {
+      localStorage.setItem(demoStorageKey, JSON.stringify(collectRecords()));
+      dirty = false;
+      setMessage("Testa izmaiņas saglabātas šajā pārlūkā.", "success");
+      return;
+    }
     const response = await fetch("/api/timetable", {
       method: "PUT",
       headers: {

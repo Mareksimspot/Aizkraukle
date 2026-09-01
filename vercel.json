@@ -1,8 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/signage/admin/", "destination": "/signage/admin", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/signage/admin", "destination": "/admin.html" },
-    { "source": "/signage/admin/", "destination": "/admin.html" },
     { "source": "/signage", "destination": "/index.html" },
     { "source": "/signage/", "destination": "/index.html" },
     { "source": "/signage/:path*", "destination": "/:path*" }
