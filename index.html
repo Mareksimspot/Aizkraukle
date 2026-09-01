@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fafdff" />
+    <title>Aizkraukles klīnika — pieņemšanas laiki</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="signage">
+      <header class="page-header">
+        <img
+          class="logo"
+          src="https://aizkrauklesklinika.lv/images/aizkraukles-klinikas-logo.svg"
+          alt="Aizkraukles klīnika"
+        />
+        <div class="heading">
+          <p class="eyebrow">Mūsu speciālisti</p>
+          <h1>Pieņemšanas laiki</h1>
+        </div>
+        <div class="clock" aria-label="Pašreizējais laiks">
+          <time id="time"></time>
+          <span id="date"></span>
+        </div>
+      </header>
+
+      <section id="schedule" class="schedule" aria-live="polite">
+        <p class="loading">Ielādē pieņemšanas laikus…</p>
+      </section>
+
+      <footer class="page-footer">
+        <p>Pieraksts vizītei</p>
+        <p class="phone">+371 65 133 875</p>
+        <span class="dot" aria-hidden="true"></span>
+        <p class="phone">+371 65 133 870</p>
+        <p class="address">Bērzu iela 5, Aizkraukle</p>
+        <div id="page-indicator" class="page-indicator" aria-label="Tabulas lapa"></div>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

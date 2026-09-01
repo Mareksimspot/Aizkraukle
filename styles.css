@@ -1,0 +1,286 @@
+@font-face {
+  font-family: "TT Hoves";
+  src: url("https://aizkrauklesklinika.lv/fonts/TTHoves-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Hoves";
+  src: url("https://aizkrauklesklinika.lv/fonts/TTHoves-DemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  font-family: "TT Hoves", Arial, sans-serif;
+  color: #002c5b;
+  background: #fafdff;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background:
+    radial-gradient(circle at 95% 2%, rgba(197, 234, 255, 0.78), transparent 24%),
+    #fafdff;
+}
+
+.signage {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: 100vw;
+  height: 100dvh;
+  padding: 2.78vw 3.33vw 2.5vw;
+  gap: 1.48vw;
+}
+
+.page-header {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr 0.72fr;
+  align-items: center;
+  min-height: 7.4vw;
+  border-bottom: 0.18vw solid #c5eaff;
+  padding-bottom: 1.48vw;
+}
+
+.logo {
+  display: block;
+  width: 19.5vw;
+  max-height: 5.6vw;
+}
+
+.heading {
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.25vw;
+  color: #539acb;
+  font-size: 1.2vw;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #002c5b;
+  font-size: 3vw;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1;
+}
+
+.clock time {
+  font-size: 2.5vw;
+  font-weight: 600;
+}
+
+.clock span {
+  margin-top: 0.42vw;
+  color: rgba(0, 44, 91, 0.7);
+  font-size: 1.02vw;
+}
+
+.schedule {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border: 0.07vw solid #abd1ed;
+  border-radius: 0.93vw;
+  background: #fafdff;
+  box-shadow: 0 0.55vw 1.85vw rgba(0, 44, 91, 0.08);
+}
+
+.loading,
+.error {
+  display: grid;
+  height: 100%;
+  margin: 0;
+  place-items: center;
+  font-size: 1.48vw;
+}
+
+.error {
+  color: #b20135;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateX(2%);
+  transition: opacity 700ms ease, transform 700ms ease;
+  visibility: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.36fr) 0.36fr 0.48fr repeat(6, minmax(0, 1fr));
+  align-items: center;
+}
+
+.column-header {
+  min-height: 3.7vw;
+  padding: 0 1.02vw;
+  background: linear-gradient(135deg, #183c62, #002c5b);
+  color: #d3ecfe;
+  font-size: 1.04vw;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.column-header > span:not(:first-child) {
+  text-align: center;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  min-height: 2.55vw;
+  padding: 0.25vw 1.02vw;
+  background: linear-gradient(135deg, #e1f4ff, #c5eaff);
+  color: #002c5b;
+  font-size: 1.13vw;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+.doctor-row {
+  flex: 1 1 0;
+  min-height: 2.7vw;
+  padding: 0.25vw 1.02vw;
+  color: rgba(0, 44, 91, 0.76);
+  font-size: 0.98vw;
+  line-height: 1.12;
+}
+
+.doctor-row:nth-child(even) {
+  background: linear-gradient(135deg, rgba(225, 244, 255, 0.4), rgba(197, 234, 255, 0.4));
+}
+
+.doctor-row > span {
+  min-width: 0;
+  padding: 0 0.25vw;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+}
+
+.doctor-row .doctor {
+  color: #002c5b;
+  font-weight: 600;
+}
+
+.doctor-row .place,
+.doctor-row .direction,
+.doctor-row .day {
+  text-align: center;
+}
+
+.doctor-row .direction {
+  color: #0096ff;
+  font-size: 2vw;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.doctor-row .day > span {
+  display: block;
+}
+
+.doctor-row .secondary {
+  color: #b20135;
+}
+
+.doctor-row .empty {
+  color: #abd1ed;
+}
+
+.page-footer {
+  display: flex;
+  align-items: center;
+  min-height: 2.9vw;
+  gap: 0.8vw;
+  color: rgba(0, 44, 91, 0.7);
+  font-size: 1.08vw;
+}
+
+.page-footer p {
+  margin: 0;
+}
+
+.phone {
+  color: #002c5b;
+  font-size: 1.28vw;
+  font-weight: 600;
+}
+
+.dot {
+  width: 0.28vw;
+  height: 0.28vw;
+  border-radius: 50%;
+  background: #b20135;
+}
+
+.address {
+  margin-left: auto !important;
+}
+
+.page-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.46vw;
+  margin-left: 1vw;
+}
+
+.page-dot {
+  width: 0.48vw;
+  height: 0.48vw;
+  border: 0.08vw solid #539acb;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color 300ms ease, transform 300ms ease;
+}
+
+.page-dot.active {
+  transform: scale(1.28);
+  background: #0096ff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .page-dot {
+    transition: none;
+  }
+}
