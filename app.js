@@ -40,6 +40,8 @@ var WEEKDAYS = [
 ];
 
 var SLIDE_DURATION = 15000;
+var UPDATE_INTERVAL = 600000;
+var rotationTimer = null;
 
 function pad(number) {
   return number < 10 ? "0" + number : String(number);
@@ -200,9 +202,13 @@ function createSlide(groups, index) {
 }
 
 function startRotation(slides, dots) {
+  if (rotationTimer !== null) {
+    window.clearInterval(rotationTimer);
+    rotationTimer = null;
+  }
   if (slides.length < 2) return;
   var active = 0;
-  window.setInterval(function () {
+  rotationTimer = window.setInterval(function () {
     slides[active].classList.remove("active");
     slides[active].setAttribute("aria-hidden", "true");
     dots[active].classList.remove("active");
@@ -215,6 +221,7 @@ function startRotation(slides, dots) {
 
 function showError() {
   var schedule = document.getElementById("schedule");
+  if (schedule.querySelector(".doctor-row")) return;
   var message = document.createElement("p");
   message.className = "error";
   message.textContent = "Neizdevās ielādēt pieņemšanas laikus.";
@@ -246,7 +253,8 @@ function renderRecords(records) {
 
 function loadSchedule() {
   var request = new XMLHttpRequest();
-  request.open("GET", "doctors_timetable.json?v=3", true);
+  var cacheKey = Math.floor(new Date().getTime() / UPDATE_INTERVAL);
+  request.open("GET", "doctors_timetable.json?v=" + cacheKey, true);
   request.onreadystatechange = function () {
     if (request.readyState !== 4) return;
     if (request.status < 200 || request.status >= 300) {
@@ -266,3 +274,4 @@ function loadSchedule() {
 updateClock();
 window.setInterval(updateClock, 30000);
 loadSchedule();
+window.setInterval(loadSchedule, UPDATE_INTERVAL);
