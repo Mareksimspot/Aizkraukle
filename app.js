@@ -135,10 +135,12 @@ function createColumnHeader() {
 }
 
 function createDirectionCell(index) {
-  var validIndex = typeof index === "number" && index >= 0 && index < DIRECTIONS.length;
+  var numericIndex = Number(index);
+  var validIndex =
+    index !== null && index !== "" && numericIndex % 1 === 0 && numericIndex >= 0 && numericIndex < DIRECTIONS.length;
   if (!validIndex) return span("—", "direction empty");
 
-  var direction = DIRECTIONS[index];
+  var direction = DIRECTIONS[numericIndex];
   var cell = span(direction.symbol, "direction");
   cell.setAttribute("aria-label", direction.label);
   cell.title = direction.label;
