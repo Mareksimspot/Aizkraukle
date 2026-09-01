@@ -8,7 +8,7 @@
     "thu": null,
     "fri": null,
     "sat": null,
-    "direction": null,
+    "direction": "1",
     "section": "Anesteziologs"
   },
   {
@@ -20,7 +20,7 @@
     "thu": null,
     "fri": null,
     "sat": null,
-    "direction": null,
+    "direction": "2",
     "section": "Anesteziologs"
   },
   {
@@ -32,7 +32,7 @@
     "thu": "8:40 - 16:00",
     "fri": null,
     "sat": null,
-    "direction": null,
+    "direction": "3",
     "section": "Audiologopēds"
   },
   {
@@ -44,7 +44,7 @@
     "thu": null,
     "fri": "9:00 – 15:00\n(1x mēnesī)",
     "sat": null,
-    "direction": null,
+    "direction": "0",
     "section": "Dermatovenerologs"
   },
   {
