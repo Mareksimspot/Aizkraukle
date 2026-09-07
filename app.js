@@ -78,9 +78,9 @@ function createColumnHeader() {
   var row = document.createElement("div");
   row.className = "table-row column-header";
   appendAll(row, [span("Ārsts", ""), span("Specialitāte", ""), span("Kab.", "")]);
+  row.appendChild(span("Virziens", ""));
   var i;
   for (i = 0; i < DAYS.length; i += 1) row.appendChild(span(DAYS[i][1], ""));
-  row.appendChild(span("Virziens", ""));
   return row;
 }
 
@@ -128,11 +128,11 @@ function createDoctorRow(record) {
     span(record.name, "doctor"),
     span(record.section, "specialty"),
     span(record.place === null || record.place === "" ? "—" : record.place, "place"),
+    createDirectionCell(record.direction),
   ]);
 
   var i;
   for (i = 0; i < DAYS.length; i += 1) row.appendChild(createScheduleCell(record[DAYS[i][0]]));
-  row.appendChild(createDirectionCell(record.direction));
   return row;
 }
 

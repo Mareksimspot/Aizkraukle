@@ -155,7 +155,7 @@ h1 {
 
 .table-row {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1.2fr) minmax(0, 0.52fr) repeat(5, minmax(0, 0.95fr)) minmax(0, 0.58fr);
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1.2fr) minmax(0, 0.52fr) minmax(0, 0.58fr) repeat(5, minmax(0, 0.95fr));
   align-items: stretch;
 }
 
@@ -211,13 +211,13 @@ h1 {
 }
 
 .doctor-row.tall-row .doctor {
-  font-size: 0.96vw;
+  font-size: 1.02vw;
   line-height: 1;
 }
 
 .doctor-row .doctor {
   color: #152f35;
-  font-size: 1.11vw;
+  font-size: 1.23vw;
   font-weight: 700;
 }
 
@@ -234,6 +234,10 @@ h1 {
 
 .doctor-row .direction-cell {
   background: #e5f4f1;
+}
+
+.doctor-row .day {
+  font-size: 1.08vw;
 }
 
 .doctor-row .day > span {
