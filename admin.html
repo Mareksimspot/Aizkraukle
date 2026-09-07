@@ -10,7 +10,7 @@
   <body>
     <header class="admin-header">
       <img
-        src="https://www.aizkrauklesklinika.lv/images/aizkraukles-klinikas-logo.svg"
+        src="clinic-logo.svg"
         alt="Aizkraukles klīnika"
       />
       <div>
@@ -45,14 +45,34 @@
 
       <section id="editor-view" class="editor" hidden>
         <p id="demo-banner" class="demo-banner" hidden>
-          Testa režīms — izmaiņas tiek saglabātas tikai šajā pārlūkā.
+          Testa režīms — grafika izmaiņas tiek saglabātas tikai šajā pārlūkā; reklāmu failus var priekšskatīt.
         </p>
+
+        <section class="advertisement-editor" aria-labelledby="advertisement-heading">
+          <div class="section-heading">
+            <div>
+              <h2 id="advertisement-heading">Ekrānu reklāmas</h2>
+              <p>JPEG, PNG, WebP, MP4 vai WebM fails līdz 100 MB.</p>
+            </div>
+            <p id="advertisement-message" class="message" aria-live="polite"></p>
+          </div>
+          <div id="advertisement-cards" class="advertisement-cards"></div>
+        </section>
+
         <div class="toolbar">
           <div>
             <h2>Speciālistu saraksts</h2>
             <p id="record-count"></p>
           </div>
           <div class="actions">
+            <label class="screen-filter">
+              Rādīt
+              <select id="screen-filter">
+                <option value="all">Abus ekrānus</option>
+                <option value="1">1. ekrānu</option>
+                <option value="2">2. ekrānu</option>
+              </select>
+            </label>
             <button id="add-record" type="button">Pievienot ierakstu</button>
             <button id="reload-records" type="button">Atjaunot</button>
             <button id="save-records" type="button" class="primary">Saglabāt</button>
@@ -66,6 +86,7 @@
           <table>
             <thead>
               <tr>
+                <th>Ekrāns</th>
                 <th>Nozare</th>
                 <th>Speciālists</th>
                 <th>Kab.</th>
@@ -75,7 +96,6 @@
                 <th>Trešdiena</th>
                 <th>Ceturtdiena</th>
                 <th>Piektdiena</th>
-                <th>Sestdiena</th>
                 <th><span class="sr-only">Darbības</span></th>
               </tr>
             </thead>
@@ -85,6 +105,7 @@
       </section>
     </main>
 
-    <script src="admin.js"></script>
+    <script src="admin-upload.js"></script>
+    <script src="admin.js?v=2"></script>
   </body>
 </html>

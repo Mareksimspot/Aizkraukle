@@ -7,9 +7,9 @@
     "wed": "10:20 – 14:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": "1",
-    "section": "Anesteziologs"
+    "section": "Anesteziologs",
+    "screen": 1
   },
   {
     "name": "L. Elīte",
@@ -19,9 +19,9 @@
     "wed": "10:20 – 14:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": "2",
-    "section": "Anesteziologs"
+    "section": "Anesteziologs",
+    "screen": 1
   },
   {
     "name": "S. Kopmane",
@@ -31,9 +31,9 @@
     "wed": null,
     "thu": "8:40 - 16:00",
     "fri": null,
-    "sat": null,
     "direction": "3",
-    "section": "Audiologopēds"
+    "section": "Audiologopēds",
+    "screen": 1
   },
   {
     "name": "L. Kapteine–Veita",
@@ -43,9 +43,9 @@
     "wed": null,
     "thu": null,
     "fri": "9:00 – 15:00\n(1x mēnesī)",
-    "sat": null,
     "direction": "0",
-    "section": "Dermatovenerologs"
+    "section": "Dermatovenerologs",
+    "screen": 1
   },
   {
     "name": "E. Vasilišina",
@@ -55,9 +55,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": "Pieņemšanas laiki var mainīties",
     "direction": null,
-    "section": "Dermatovenerologs"
+    "section": "Dermatovenerologs",
+    "screen": 1
   },
   {
     "name": "A.I. Svolaka",
@@ -67,9 +67,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": "1x mēnesī",
     "direction": null,
-    "section": "Dermatovenerologs"
+    "section": "Dermatovenerologs",
+    "screen": 1
   },
   {
     "name": "A. Arnīte",
@@ -79,9 +79,9 @@
     "wed": null,
     "thu": null,
     "fri": "10:00 - 16:00",
-    "sat": "1x mēnesī",
     "direction": null,
-    "section": "Dermatovenerologs"
+    "section": "Dermatovenerologs",
+    "screen": 1
   },
   {
     "name": "J. Klendere",
@@ -91,9 +91,9 @@
     "wed": null,
     "thu": null,
     "fri": "10:00 - 16:00",
-    "sat": "1x mēnesī",
     "direction": null,
-    "section": "Dermatovenerologs"
+    "section": "Dermatovenerologs",
+    "screen": 1
   },
   {
     "name": "B. Valtere",
@@ -103,9 +103,9 @@
     "wed": "9:00 – 13:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Endokrinologs"
+    "section": "Endokrinologs",
+    "screen": 1
   },
   {
     "name": "K. Avotiņa",
@@ -115,9 +115,9 @@
     "wed": null,
     "thu": "9:00 - 16:00",
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Ergoterapeits"
+    "section": "Ergoterapeits",
+    "screen": 1
   },
   {
     "name": "I. Vanaga",
@@ -127,9 +127,9 @@
     "wed": "8:00 – 14:00",
     "thu": "8:00 – 14:00",
     "fri": "8:00 – 14:00",
-    "sat": null,
     "direction": null,
-    "section": "Fizikālās Procedūras"
+    "section": "Fizikālās Procedūras",
+    "screen": 1
   },
   {
     "name": "A. Vītola",
@@ -139,9 +139,9 @@
     "wed": "8:00 – 16:00",
     "thu": "8:00 – 16:00",
     "fri": "[8:00 – 16:00]",
-    "sat": null,
     "direction": null,
-    "section": "Fizioterapeits"
+    "section": "Fizioterapeits",
+    "screen": 1
   },
   {
     "name": "J. Grinsone-Velde",
@@ -151,9 +151,9 @@
     "wed": "8:00 – 17:20\n[17:20 - 18:00]",
     "thu": "8:00 – 17:20\n[17:20 - 18:00]",
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Fizioterapeits"
+    "section": "Fizioterapeits",
+    "screen": 1
   },
   {
     "name": "A. Muižniece",
@@ -163,9 +163,9 @@
     "wed": "11:00 – 19:00",
     "thu": "8:30 – 17:10",
     "fri": "8:30 – 17:10",
-    "sat": null,
     "direction": null,
-    "section": "Fizioterapeits"
+    "section": "Fizioterapeits",
+    "screen": 1
   },
   {
     "name": "I. Miglāne-Siliņa",
@@ -175,9 +175,9 @@
     "wed": "8:00 – 14:00",
     "thu": "8:00 – 14:00",
     "fri": "8:00 – 14:00",
-    "sat": null,
     "direction": null,
-    "section": "Fizioterapeits"
+    "section": "Fizioterapeits",
+    "screen": 1
   },
   {
     "name": "Z. Skadiņa",
@@ -187,9 +187,9 @@
     "wed": "8:00 - 16:00",
     "thu": "8:00 - 16:00",
     "fri": "8:00 - 16:00",
-    "sat": null,
     "direction": null,
-    "section": "Fizioterapeits"
+    "section": "Fizioterapeits",
+    "screen": 1
   },
   {
     "name": "L. Labuce-Mestere",
@@ -199,9 +199,9 @@
     "wed": null,
     "thu": null,
     "fri": "8:40 - 15:00",
-    "sat": null,
     "direction": null,
-    "section": "Fizioterapeits"
+    "section": "Fizioterapeits",
+    "screen": 1
   },
   {
     "name": "L. Vizule",
@@ -211,9 +211,9 @@
     "wed": null,
     "thu": null,
     "fri": "9:00 - 15:00",
-    "sat": null,
     "direction": null,
-    "section": "Fizioterapeits"
+    "section": "Fizioterapeits",
+    "screen": 1
   },
   {
     "name": "L. Grīnvalde",
@@ -223,9 +223,9 @@
     "wed": null,
     "thu": "9:00 – 13:00 [13:00 - 14:00]",
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Ginekologs / USG"
+    "section": "Ginekologs / USG",
+    "screen": 1
   },
   {
     "name": "V. Bruzgule",
@@ -235,9 +235,9 @@
     "wed": "9:00 – 13:00 [13:00 - 14:00]",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Ginekologs / USG"
+    "section": "Ginekologs / USG",
+    "screen": 1
   },
   {
     "name": "B. Brinkmane",
@@ -247,9 +247,9 @@
     "wed": "10:00 - 13:00\nveloergometrija",
     "thu": "10:00 - 13:00",
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Kardiologs"
+    "section": "Kardiologs",
+    "screen": 1
   },
   {
     "name": "A. Leidums",
@@ -259,9 +259,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Ķirurgs"
+    "section": "Ķirurgs",
+    "screen": 1
   },
   {
     "name": "J. Pāvulāns",
@@ -271,9 +271,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": "2x mēnesī",
     "direction": null,
-    "section": "Ķirurgs"
+    "section": "Ķirurgs",
+    "screen": 1
   },
   {
     "name": "J. Opincāns",
@@ -283,9 +283,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": "2 x mēnesī",
     "direction": null,
-    "section": "Ķirurgs"
+    "section": "Ķirurgs",
+    "screen": 1
   },
   {
     "name": "I. Bruņenieks\n – Flebologs",
@@ -295,9 +295,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": "3 x mēnesī",
     "direction": null,
-    "section": "Ķirurgs"
+    "section": "Ķirurgs",
+    "screen": 1
   },
   {
     "name": "I. Bruņenieks\n – Proktologs",
@@ -307,9 +307,9 @@
     "wed": null,
     "thu": null,
     "fri": "10:00 – 16:00",
-    "sat": "3 x mēnesī",
     "direction": null,
-    "section": "Ķirurgs"
+    "section": "Ķirurgs",
+    "screen": 1
   },
   {
     "name": "P. Šapars\n- Flebologs",
@@ -319,9 +319,9 @@
     "wed": "10:00 - 15:00",
     "thu": null,
     "fri": null,
-    "sat": "Pieņemšanas laiki var mainīties",
     "direction": null,
-    "section": "Ķirurgs"
+    "section": "Ķirurgs",
+    "screen": 1
   },
   {
     "name": "E. Smilgāja",
@@ -331,9 +331,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Narkologs"
+    "section": "Narkologs",
+    "screen": 2
   },
   {
     "name": "Dz. Krišjāne",
@@ -343,9 +343,9 @@
     "wed": "9:00 – 11:00 [11:00 - 13:00]",
     "thu": "9:00 – 11:00 \n[11:00 - 12:00]",
     "fri": "13:00-15:00\n[15:00 - 16:00]",
-    "sat": null,
     "direction": null,
-    "section": "Neirologs"
+    "section": "Neirologs",
+    "screen": 2
   },
   {
     "name": "I. Gavare",
@@ -355,9 +355,9 @@
     "wed": null,
     "thu": "12:00 – 14:00 [14:00 - 16:00]",
     "fri": "10:00 – 12:00",
-    "sat": null,
     "direction": null,
-    "section": "Neirologs"
+    "section": "Neirologs",
+    "screen": 2
   },
   {
     "name": "I. Petuškova",
@@ -367,9 +367,9 @@
     "wed": null,
     "thu": "12:00 – 16:00",
     "fri": "9:00 – 13:00",
-    "sat": null,
     "direction": null,
-    "section": "Oftalmologs"
+    "section": "Oftalmologs",
+    "screen": 2
   },
   {
     "name": "E. Gončarovs",
@@ -379,9 +379,9 @@
     "wed": "12:00 - 17:00",
     "thu": null,
     "fri": null,
-    "sat": "Pieņemšanas laiki var mainīties",
     "direction": null,
-    "section": "Oftalmologs"
+    "section": "Oftalmologs",
+    "screen": 2
   },
   {
     "name": "I. Bite",
@@ -391,9 +391,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Otolaringologs"
+    "section": "Otolaringologs",
+    "screen": 2
   },
   {
     "name": "I. Tērauds",
@@ -403,9 +403,9 @@
     "wed": null,
     "thu": "9:00 - 13:00",
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Otolaringologs"
+    "section": "Otolaringologs",
+    "screen": 2
   },
   {
     "name": "A. Šurpicka",
@@ -415,9 +415,9 @@
     "wed": "16:00 – 18:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Pneimonologs"
+    "section": "Pneimonologs",
+    "screen": 2
   },
   {
     "name": "E. Lūse",
@@ -427,9 +427,9 @@
     "wed": "9:30 - 17:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Podologs"
+    "section": "Podologs",
+    "screen": 2
   },
   {
     "name": "E. Smilgāja",
@@ -439,9 +439,9 @@
     "wed": "9:00-16:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Psihiatrs / Bērnu Psihiatrs"
+    "section": "Psihiatrs / Bērnu Psihiatrs",
+    "screen": 2
   },
   {
     "name": "K. Goldberga",
@@ -451,9 +451,9 @@
     "wed": "8:00 – 18:00",
     "thu": "8:00 – 18:00",
     "fri": "8:00 – 18:00",
-    "sat": null,
     "direction": null,
-    "section": "Psihiatrijas Māsa"
+    "section": "Psihiatrijas Māsa",
+    "screen": 2
   },
   {
     "name": "Ē. Vizulis",
@@ -463,9 +463,9 @@
     "wed": "11:00 – 15:00 [15:00 - 16:00]",
     "thu": null,
     "fri": "9:00 – 11:00 [11:00 - 12:00]",
-    "sat": null,
     "direction": null,
-    "section": "Traumatologs"
+    "section": "Traumatologs",
+    "screen": 2
   },
   {
     "name": "I. Geldners",
@@ -475,9 +475,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": "1x mēnesī",
     "direction": null,
-    "section": "Urologs"
+    "section": "Urologs",
+    "screen": 2
   },
   {
     "name": "E. Kārkliņa",
@@ -487,9 +487,9 @@
     "wed": null,
     "thu": "9:00 – 12:00",
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Vecmāte"
+    "section": "Vecmāte",
+    "screen": 2
   },
   {
     "name": "A. Pāvila",
@@ -499,9 +499,9 @@
     "wed": "8:00 – 14:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "DT (Datortomogrāfs)"
+    "section": "DT (Datortomogrāfs)",
+    "screen": 2
   },
   {
     "name": "S. Zirnīte",
@@ -511,9 +511,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "DT (Datortomogrāfs)"
+    "section": "DT (Datortomogrāfs)",
+    "screen": 2
   },
   {
     "name": "A. Leidums vai\nI. Zivtiņa",
@@ -523,9 +523,9 @@
     "wed": "8:00 – 11:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Endoskopija"
+    "section": "Endoskopija",
+    "screen": 2
   },
   {
     "name": "A. Pāvila",
@@ -535,9 +535,9 @@
     "wed": null,
     "thu": null,
     "fri": "pēc vajadzības",
-    "sat": null,
     "direction": null,
-    "section": "USG + Doplerogrāfija"
+    "section": "USG + Doplerogrāfija",
+    "screen": 2
   },
   {
     "name": "I. Zivtiņa",
@@ -547,9 +547,9 @@
     "wed": "8:20 – 15:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "USG + Doplerogrāfija"
+    "section": "USG + Doplerogrāfija",
+    "screen": 2
   },
   {
     "name": "S. Zirnīte",
@@ -559,9 +559,9 @@
     "wed": null,
     "thu": "9:00 - 15:00",
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "USG + Doplerogrāfija"
+    "section": "USG + Doplerogrāfija",
+    "screen": 2
   },
   {
     "name": "RTG",
@@ -571,9 +571,9 @@
     "wed": "8:00 - 18:00",
     "thu": "8:00 - 18:00",
     "fri": "8:00 - 18:00",
-    "sat": null,
     "direction": null,
-    "section": "Citi izmeklējumi"
+    "section": "Citi izmeklējumi",
+    "screen": 2
   },
   {
     "name": "Mamogrāfija",
@@ -583,9 +583,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Citi izmeklējumi"
+    "section": "Citi izmeklējumi",
+    "screen": 2
   },
   {
     "name": "Laboratorija",
@@ -595,9 +595,9 @@
     "wed": "7:30 – 15:30",
     "thu": "8:00 – 16:00",
     "fri": "7:30 – 15:30",
-    "sat": null,
     "direction": null,
-    "section": "Citi izmeklējumi"
+    "section": "Citi izmeklējumi",
+    "screen": 2
   },
   {
     "name": "Veloergometrija",
@@ -607,9 +607,9 @@
     "wed": "10:00 - 13:00",
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Citi izmeklējumi"
+    "section": "Citi izmeklējumi",
+    "screen": 2
   },
   {
     "name": "EKG",
@@ -619,9 +619,9 @@
     "wed": "8:00 - 14:00",
     "thu": "8:00 - 14:00",
     "fri": "8:00 - 14:00",
-    "sat": null,
     "direction": null,
-    "section": "Citi izmeklējumi"
+    "section": "Citi izmeklējumi",
+    "screen": 2
   },
   {
     "name": "Darba specifikas dēļ",
@@ -631,9 +631,9 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Obligātās veselības pārbaudes"
+    "section": "Obligātās veselības pārbaudes",
+    "screen": 2
   },
   {
     "name": "Transportlīdzekļu vadīšanai;  ieroču nēsāšanai un glabāšanai",
@@ -643,8 +643,8 @@
     "wed": null,
     "thu": null,
     "fri": null,
-    "sat": null,
     "direction": null,
-    "section": "Obligātās veselības pārbaudes"
+    "section": "Obligātās veselības pārbaudes",
+    "screen": 2
   }
 ]

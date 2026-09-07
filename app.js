@@ -4,7 +4,6 @@ var DAYS = [
   ["wed", "Trešdiena"],
   ["thu", "Ceturtdiena"],
   ["fri", "Piektdiena"],
-  ["sat", "Sestdiena"],
 ];
 
 var DIRECTIONS = [
@@ -30,18 +29,22 @@ var MONTHS = [
 ];
 
 var WEEKDAYS = [
-  "svētdiena",
-  "pirmdiena",
-  "otrdiena",
-  "trešdiena",
-  "ceturtdiena",
-  "piektdiena",
-  "sestdiena",
+  "Svētdiena",
+  "Pirmdiena",
+  "Otrdiena",
+  "Trešdiena",
+  "Ceturtdiena",
+  "Piektdiena",
+  "Sestdiena",
 ];
 
-var SLIDE_DURATION = 15000;
 var UPDATE_INTERVAL = 600000;
-var rotationTimer = null;
+var screenNumber = getScreenNumber();
+
+function getScreenNumber() {
+  var match = window.location.search.match(/[?&]screen=([^&]+)/);
+  return match && decodeURIComponent(match[1]) === "2" ? 2 : 1;
+}
 
 function pad(number) {
   return number < 10 ? "0" + number : String(number);
@@ -51,62 +54,8 @@ function updateClock() {
   var now = new Date();
   document.getElementById("time").textContent = pad(now.getHours()) + ":" + pad(now.getMinutes());
   document.getElementById("date").textContent =
-    WEEKDAYS[now.getDay()] + ", " + now.getDate() + ". " + MONTHS[now.getMonth()];
-}
-
-function groupBySection(records) {
-  var groups = [];
-  var i;
-  for (i = 0; i < records.length; i += 1) {
-    var record = records[i];
-    var group = groups.length ? groups[groups.length - 1] : null;
-    if (!group || group.section !== record.section) {
-      group = { section: record.section, records: [] };
-      groups.push(group);
-    }
-    group.records.push(record);
-  }
-  return groups;
-}
-
-function lineCount(value) {
-  if (!value) return 0;
-  var matches = value.match(/\n/g);
-  return matches ? matches.length : 0;
-}
-
-function groupWeight(group) {
-  var weight = 1.15;
-  var i;
-  var day;
-  for (i = 0; i < group.records.length; i += 1) {
-    var record = group.records[i];
-    var extraLines = lineCount(record.name);
-    for (day = 0; day < DAYS.length; day += 1) {
-      extraLines += lineCount(record[DAYS[day][0]]);
-    }
-    weight += 1 + extraLines * 0.42;
-  }
-  return weight;
-}
-
-function splitGroups(groups) {
-  var total = 0;
-  var i;
-  for (i = 0; i < groups.length; i += 1) total += groupWeight(groups[i]);
-
-  var target = total / 2;
-  var pages = [[], []];
-  var page = 0;
-  var weight = 0;
-  for (i = 0; i < groups.length; i += 1) {
-    var nextWeight = groupWeight(groups[i]);
-    if (page === 0 && weight > 0 && weight + nextWeight > target) page = 1;
-    pages[page].push(groups[i]);
-    weight += nextWeight;
-  }
-  if (!pages[1].length) pages.pop();
-  return pages;
+    now.getFullYear() + ". gada " + now.getDate() + ". " + MONTHS[now.getMonth()];
+  document.getElementById("weekday").textContent = WEEKDAYS[now.getDay()];
 }
 
 function span(text, className) {
@@ -128,9 +77,10 @@ function clear(element) {
 function createColumnHeader() {
   var row = document.createElement("div");
   row.className = "table-row column-header";
-  appendAll(row, [span("Speciālists", ""), span("Kab.", ""), span("Virziens", "")]);
+  appendAll(row, [span("Ārsts", ""), span("Specialitāte", ""), span("Kab.", "")]);
   var i;
   for (i = 0; i < DAYS.length; i += 1) row.appendChild(span(DAYS[i][1], ""));
+  row.appendChild(span("Virziens", ""));
   return row;
 }
 
@@ -138,12 +88,17 @@ function createDirectionCell(index) {
   var numericIndex = Number(index);
   var validIndex =
     index !== null && index !== "" && numericIndex % 1 === 0 && numericIndex >= 0 && numericIndex < DIRECTIONS.length;
-  if (!validIndex) return span("—", "direction empty");
+  var cell = span("", "direction-cell");
+  if (!validIndex) {
+    cell.appendChild(span("—", "empty"));
+    return cell;
+  }
 
   var direction = DIRECTIONS[numericIndex];
-  var cell = span(direction.symbol, "direction");
-  cell.setAttribute("aria-label", direction.label);
-  cell.title = direction.label;
+  var icon = span(direction.symbol, "direction-icon");
+  icon.setAttribute("aria-label", direction.label);
+  icon.title = direction.label;
+  cell.appendChild(icon);
   return cell;
 }
 
@@ -157,9 +112,9 @@ function createScheduleCell(value) {
     return cell;
   }
 
-  var before = parts[1].trim();
-  var secondary = parts[2].trim();
-  var after = parts[3].trim();
+  var before = parts[1].replace(/^\s+|\s+$/g, "");
+  var secondary = parts[2].replace(/^\s+|\s+$/g, "");
+  var after = parts[3].replace(/^\s+|\s+$/g, "");
   if (before) cell.appendChild(span(before, ""));
   cell.appendChild(span(secondary, "secondary"));
   if (after) cell.appendChild(span(after, ""));
@@ -168,127 +123,107 @@ function createScheduleCell(value) {
 
 function createDoctorRow(record) {
   var row = document.createElement("div");
-  row.className = "table-row doctor-row";
+  row.className = "table-row doctor-row" + (record.name.length > 45 ? " tall-row" : "");
   appendAll(row, [
     span(record.name, "doctor"),
-    span(record.place === null ? "—" : record.place, "place"),
-    createDirectionCell(record.direction),
+    span(record.section, "specialty"),
+    span(record.place === null || record.place === "" ? "—" : record.place, "place"),
   ]);
 
   var i;
-  for (i = 0; i < DAYS.length; i += 1) {
-    row.appendChild(createScheduleCell(record[DAYS[i][0]]));
-  }
+  for (i = 0; i < DAYS.length; i += 1) row.appendChild(createScheduleCell(record[DAYS[i][0]]));
+  row.appendChild(createDirectionCell(record.direction));
   return row;
-}
-
-function createSlide(groups, index) {
-  var slide = document.createElement("article");
-  slide.className = "slide" + (index === 0 ? " active" : "");
-  slide.setAttribute("aria-hidden", index === 0 ? "false" : "true");
-  slide.appendChild(createColumnHeader());
-
-  var groupIndex;
-  var recordIndex;
-  for (groupIndex = 0; groupIndex < groups.length; groupIndex += 1) {
-    var group = groups[groupIndex];
-    var title = document.createElement("div");
-    title.className = "section-title";
-    title.textContent = group.section;
-    slide.appendChild(title);
-    for (recordIndex = 0; recordIndex < group.records.length; recordIndex += 1) {
-      slide.appendChild(createDoctorRow(group.records[recordIndex]));
-    }
-  }
-  return slide;
-}
-
-function startRotation(slides, dots) {
-  if (rotationTimer !== null) {
-    window.clearInterval(rotationTimer);
-    rotationTimer = null;
-  }
-  if (slides.length < 2) return;
-  var active = 0;
-  rotationTimer = window.setInterval(function () {
-    slides[active].classList.remove("active");
-    slides[active].setAttribute("aria-hidden", "true");
-    dots[active].classList.remove("active");
-    active = (active + 1) % slides.length;
-    slides[active].classList.add("active");
-    slides[active].setAttribute("aria-hidden", "false");
-    dots[active].classList.add("active");
-  }, SLIDE_DURATION);
 }
 
 function showError() {
   var schedule = document.getElementById("schedule");
   if (schedule.querySelector(".doctor-row")) return;
-  var message = document.createElement("p");
-  message.className = "error";
-  message.textContent = "Neizdevās ielādēt pieņemšanas laikus.";
   clear(schedule);
-  schedule.appendChild(message);
+  schedule.appendChild(span("Neizdevās ielādēt pieņemšanas laikus.", "error"));
 }
 
 function renderRecords(records) {
   var schedule = document.getElementById("schedule");
-  var pages = splitGroups(groupBySection(records));
-  var slides = [];
-  var dots = [];
+  var filtered = [];
   var i;
+  for (i = 0; i < records.length; i += 1) {
+    if (Number(records[i].screen) === screenNumber) filtered.push(records[i]);
+  }
 
   clear(schedule);
-  for (i = 0; i < pages.length; i += 1) {
-    slides.push(createSlide(pages[i], i));
-    schedule.appendChild(slides[i]);
-  }
-
-  var indicator = document.getElementById("page-indicator");
-  clear(indicator);
-  for (i = 0; i < pages.length; i += 1) {
-    dots.push(span("", "page-dot" + (i === 0 ? " active" : "")));
-    indicator.appendChild(dots[i]);
-  }
-  startRotation(slides, dots);
+  schedule.appendChild(createColumnHeader());
+  for (i = 0; i < filtered.length; i += 1) schedule.appendChild(createDoctorRow(filtered[i]));
+  if (!filtered.length) schedule.appendChild(span("Šim ekrānam nav pievienotu speciālistu.", "error"));
 }
 
-function requestSchedule(url, useFallback) {
+function requestJson(url, fallbackUrl, onSuccess, onFailure) {
   var request = new XMLHttpRequest();
   var cacheKey = Math.floor(new Date().getTime() / UPDATE_INTERVAL);
   request.open("GET", url + (url.indexOf("?") === -1 ? "?" : "&") + "v=" + cacheKey, true);
   request.onreadystatechange = function () {
     if (request.readyState !== 4) return;
     if (request.status < 200 || request.status >= 300) {
-      if (useFallback) {
-        requestSchedule("doctors_timetable.json", false);
-        return;
-      }
-      showError();
+      if (fallbackUrl) requestJson(fallbackUrl, null, onSuccess, onFailure);
+      else if (onFailure) onFailure();
       return;
     }
     try {
-      renderRecords(JSON.parse(request.responseText));
+      onSuccess(JSON.parse(request.responseText));
     } catch (error) {
-      if (useFallback) {
-        requestSchedule("doctors_timetable.json", false);
-        return;
-      }
-      showError();
+      if (fallbackUrl) requestJson(fallbackUrl, null, onSuccess, onFailure);
+      else if (onFailure) onFailure();
     }
   };
   request.onerror = function () {
-    if (useFallback) requestSchedule("doctors_timetable.json", false);
-    else showError();
+    if (fallbackUrl) requestJson(fallbackUrl, null, onSuccess, onFailure);
+    else if (onFailure) onFailure();
   };
   request.send();
 }
 
-function loadSchedule() {
-  requestSchedule("/api/timetable", true);
+function renderAdvertisement(config) {
+  var container = document.getElementById("advertisement");
+  var media = config && config.screens ? config.screens[String(screenNumber)] : null;
+  clear(container);
+  if (!media || !media.url) {
+    var placeholder = document.createElement("div");
+    placeholder.className = "ad-placeholder";
+    placeholder.appendChild(span("i", "info-icon"));
+    var details = document.createElement("div");
+    details.appendChild(span("Informācija", "ad-placeholder-title"));
+    var message = document.createElement("p");
+    message.textContent = "Lūdzam ierasties 10 minūtes pirms pierakstītā vizītes laika.";
+    details.appendChild(message);
+    placeholder.appendChild(details);
+    container.appendChild(placeholder);
+    return;
+  }
+
+  var element;
+  if (media.type && media.type.indexOf("video/") === 0) {
+    element = document.createElement("video");
+    element.autoplay = true;
+    element.muted = true;
+    element.loop = true;
+    element.setAttribute("playsinline", "");
+    element.setAttribute("preload", "auto");
+  } else {
+    element = document.createElement("img");
+    element.alt = media.name || "Reklāma";
+  }
+  element.className = "ad-media";
+  element.src = media.url;
+  container.appendChild(element);
 }
 
+function loadContent() {
+  requestJson("/api/timetable", "doctors_timetable.json", renderRecords, showError);
+  requestJson("/api/advertisements", "advertisements.json", renderAdvertisement, null);
+}
+
+document.getElementById("screen-number").textContent = "Ekrāns " + screenNumber;
 updateClock();
 window.setInterval(updateClock, 30000);
-loadSchedule();
-window.setInterval(loadSchedule, UPDATE_INTERVAL);
+loadContent();
+window.setInterval(loadContent, UPDATE_INTERVAL);

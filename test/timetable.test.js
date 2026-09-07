@@ -20,6 +20,7 @@ test("validation normalizes optional fields and direction indices", () => {
       mon: " 8:00 - 9:00 ",
       direction: "3",
       section: " Ķirurgs ",
+      screen: "2",
     },
   ]);
   assert.deepEqual(records[0], {
@@ -30,15 +31,22 @@ test("validation normalizes optional fields and direction indices", () => {
     wed: null,
     thu: null,
     fri: null,
-    sat: null,
     direction: 3,
     section: "Ķirurgs",
+    screen: 2,
   });
 });
 
 test("validation rejects invalid direction indices", () => {
   assert.throws(
-    () => validateTimetable([{ name: "Ārsts", section: "Nozare", direction: 4 }]),
+    () => validateTimetable([{ name: "Ārsts", section: "Nozare", direction: 4, screen: 1 }]),
     /direction must be empty or an index from 0 to 3/,
+  );
+});
+
+test("validation requires a signage screen", () => {
+  assert.throws(
+    () => validateTimetable([{ name: "Ārsts", section: "Nozare", screen: 3 }]),
+    /screen must be 1 or 2/,
   );
 });
